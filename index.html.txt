@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batman ❤️ Azra</title>
+
+<style>
+*{box-sizing:border-box;font-family:'Comic Sans MS',cursive;}
+
+body{
+  margin:0;
+  height:100vh;
+  background:radial-gradient(circle at top,#2b2b40,#000);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:white;
+}
+
+/* BAT SIGNAL */
+.batsignal{
+  position:fixed;
+  top:-200px;
+  left:50%;
+  transform:translateX(-50%);
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffd70055,transparent 70%);
+  animation:signal 3s ease forwards;
+  pointer-events:none;
+}
+
+@keyframes signal{
+  to{top:-80px;}
+}
+
+/* CARD */
+.card{
+  background:#1f1f2e;
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  z-index:2;
+  animation:fadeIn 1.2s ease;
+}
+
+/* BATMAN */
+.batman{
+  font-size:34px;
+  animation:batPop 1.5s ease;
+}
+
+/* POOKIE CAT */
+.cat{
+  width:120px;
+  height:120px;
+  background:#ffd6e0;
+  border-radius:50%;
+  margin:20px auto;
+  position:relative;
+  animation:float 2.5s ease-in-out infinite;
+}
+
+.cat::before,.cat::after{
+  content:"";
+  position:absolute;
+  top:-20px;
+  width:35px;height:35px;
+  background:#ffd6e0;
+  border-radius:50%;
+}
+.cat::before{left:10px;}
+.cat::after{right:10px;}
+
+.eye{
+  width:10px;height:10px;
+  background:#000;
+  border-radius:50%;
+  position:absolute;
+  top:45px;
+  animation:blink 4s infinite;
+}
+.eye.left{left:35px;}
+.eye.right{right:35px;}
+
+.mouth{
+  width:18px;
+  height:10px;
+  border-bottom:3px solid #000;
+  border-radius:0 0 20px 20px;
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.paw{
+  position:absolute;
+  width:18px;height:18px;
+  background:#ffd6e0;
+  border-radius:50%;
+  bottom:-6px;
+  right:15px;
+  animation:wave 1.2s ease-in-out infinite;
+}
+
+@keyframes wave{
+  0%,100%{transform:rotate(0);}
+  50%{transform:rotate(25deg);}
+}
+
+/* TEXT */
+#msg{
+  margin-top:10px;
+  font-size:18px;
+  animation:pop 1s ease;
+}
+
+/* BUTTONS */
+.btns{
+  margin-top:22px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+button{
+  padding:10px 24px;
+  border:none;
+  border-radius:25px;
+  font-size:15px;
+  cursor:pointer;
+}
+
+#yes{
+  background:#ff4d6d;
+  color:white;
+  opacity:.5;
+  pointer-events:none;
+}
+
+#no{
+  background:#444;
+  color:white;
+  position:relative;
+}
+
+/* RESULT */
+#result{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,#ffdde1,#1f1f2e);
+  color:#000;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  z-index:3;
+}
+
+#result img{
+  width:280px;
+  border-radius:18px;
+  margin:12px 0;
+}
+
+/* HEARTS */
+.heart{
+  position:fixed;
+  color:#ff4d6d;
+  font-size:22px;
+  animation:fall 3s linear infinite;
+}
+
+/* AZRA FIREWORK */
+.azra{
+  position:fixed;
+  top:40%;
+  font-size:42px;
+  color:#ff4d6d;
+  letter-spacing:6px;
+  animation:explode 2s ease forwards;
+}
+
+/* ANIMATIONS */
+@keyframes batPop{
+  from{transform:scale(0);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+@keyframes blink{
+  0%,90%,100%{transform:scaleY(1);}
+  95%{transform:scaleY(0.1);}
+}
+@keyframes pop{
+  from{transform:scale(0);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+@keyframes fall{
+  from{top:-10%;}
+  to{top:110%;}
+}
+@keyframes explode{
+  from{transform:scale(0);opacity:0;}
+  to{transform:scale(1.2);opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="batsignal"></div>
+
+<div class="card" id="card">
+  <div class="batman">🦇 Hi Azra… I’m Batman</div>
+
+  <div class="cat">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth"></div>
+    <div class="paw"></div>
+  </div>
+
+  <div id="msg">Will you be my Valentine? 💖</div>
+
+  <div class="btns">
+    <button id="yes">Yes 🥹</button>
+    <button id="no">No 😏</button>
+  </div>
+</div>
+
+<div id="result">
+  <h1>🖤 Azra & Batman 🦇</h1>
+  <p>You are my forever pookie 💕</p>
+  <img src="https://drive.google.com/uc?export=view&id=1sk9CY6wS-GUeY_z0K3-0XFw3BaWFzvkK">
+  <p>love you meri hurr parii 💖</p>
+</div>
+
+<!-- SONG -->
+<audio id="song">
+  <source src="https://drive.google.com/uc?export=view&id=1Yvi8spYFFgFsVKivqwMJxEw50-KKbtP0" type="audio/mpeg">
+</audio>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const msg = document.getElementById("msg");
+
+let step = 0;
+const lines = [
+  "1️⃣ Are you sure, Azra? 🥺",
+  "2️⃣ Batman is nervous now… 😳",
+  "Okay… say YES 💖"
+];
+
+noBtn.onclick = ()=>{
+  if(step < lines.length){
+    msg.innerText = lines[step];
+    step++;
+    if(step === 3){
+      yesBtn.style.opacity = "1";
+      yesBtn.style.pointerEvents = "auto";
+    }
+  }else{
+    noBtn.style.left = Math.random()*120-60+"px";
+    noBtn.style.top = Math.random()*80-40+"px";
+  }
+};
+
+yesBtn.onclick = ()=>{
+  document.getElementById("card").style.display="none";
+  document.getElementById("result").style.display="flex";
+  document.getElementById("song").play().catch(()=>{});
+  hearts();
+  azraFirework();
+};
+
+/* HEART RAIN */
+function hearts(){
+  for(let i=0;i<40;i++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerText="♥";
+    h.style.left=Math.random()*100+"%";
+    h.style.animationDuration=Math.random()*2+2+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+  }
+}
+
+/* AZRA FIREWORK */
+function azraFirework(){
+  const a=document.createElement("div");
+  a.className="azra";
+  a.innerText="A Z R A";
+  document.body.appendChild(a);
+}
+</script>
+
+</body>
+</html>
